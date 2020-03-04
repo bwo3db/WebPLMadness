@@ -1,0 +1,42 @@
+body {background-color: rgba(206, 213, 214, 0.687);}
+
+.form-container {
+    background-color: white;
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 25px;
+}
+
+.form-input-container {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.required
+{
+    color: red;
+}
+
+h1 {
+    padding-top: 1%;
+    margin-bottom: 1%;
+}
+
+.my-input {
+    background-color: rgba(206, 213, 214, 0.687);
+}
+
+.button-div {
+    margin-top: 1%;
+    padding-bottom: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#invalid-text {
+    color: red;
+}
