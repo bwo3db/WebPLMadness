@@ -1,24 +1,37 @@
 <html>
     <head>
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Create A Bracket</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+            integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+            
         <link href="https://fonts.googleapis.com/css?family=Hind&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="styles.css" media="screen"/>
 
     </head>
     <body>
-        <nav>
-
-        </nav>
-
+        <!--Navbar-->
+        <div class="flex-container title-container">
+            <div id="logo">Logo Here</div>
+            <div class="title-content"><a href="leaderboard.html">Scoreboard</a></div>
+            <div class="title-content"><a href="index.html">Create</a></div>
+            <div class="title-content"><a href="index.html">Your Bracket</a></div>
+            <div class="title-content"><a href="login.html">Logout</a></div>
+        </div>
+        <!--This is for the Title Business-->
         <div class="headerbar">
-            <h1 class="header-text">Your Bracket</h1>
+            <h1 class="header-text">Create A Bracket</h1>
             <h2 class="header-text">Your Projected Point Score: </h2> <!--this will be addressed in the backend or in future javascript-->
             <h2 class="header-text">Predicted Average Wins: </h2>
         </div>
-        <!-- change this to grid instead of flexbox-->
+        <!--This is for the Title Business-->
         <div class="titlebar">
             <h2>Midwest</h2>
             <h2>East</h2>
         </div>
+        <!--Midwest Region Games-->
         <div class="regions">
             <div class="region-container">
                 <div class="grid-container-1">
@@ -300,7 +313,7 @@
                     </div>
                 </div>
             </div>
-            
+            <!--West Region Games-->
             <div class="region-container-reverse">
                 <div class="grid-container-1">
                     <div class="score-box">
@@ -582,14 +595,15 @@
                 </div>
             </div>
         </div>
-        
+        <!-- Champion Box -->
         <div class="champion">
-            <h3>Champion</h3>
+            <h2>Champion</h2>
             <h2 id="finalchamp"></h2>
             <hr/>
-            <button>Save</button>
+            <p id="saveupdate"></p>
+            <button class="btn btn-success btn-lg" onclick="yourbracketsave()">Save</button>
         </div>
-
+        <!-- Semi-finals and Championship Game Box -->
         <div class="champions-bracket">
             <div class="score-box">
                 <div class="team-box tb-underline" id="61" onclick="ffselect(this)">
@@ -646,11 +660,13 @@
                 </div>
             </div>
         </div>
+        <!-- Titlebar -->
         <div class="titlebar">
             <h2>North</h2>
             <h2>South</h2>
         </div>
-        <div class="regions">
+        <!--North Region Games-->
+        <div class="regions" style="margin-bottom: 100px;">
             <div class="region-container">
                 <div class="grid-container-1">
                     <div class="score-box">
@@ -931,7 +947,7 @@
                     </div>
                 </div>
             </div>
-            
+            <!-- South Region Box -->
             <div class="region-container-reverse">
                 <div class="grid-container-1">
                     <div class="score-box">

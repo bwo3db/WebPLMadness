@@ -1,4 +1,4 @@
-function ro64select(currentElement, addcode){
+var ro64select = function(currentElement, addcode){
     let currentelementid = Number(currentElement.id);
     let changedelement = 0; 
     if(currentelementid  === 1 + addcode){
@@ -44,7 +44,7 @@ function ro64select(currentElement, addcode){
     console.log(locofswitch);
 }
 
-function ro32select(currentElement, addcode){
+ro32select = (currentElement, addcode) =>{
     let currentelementid = Number(currentElement.id);
     let changedelement = 0; 
     if(currentelementid  === 17 + addcode){
@@ -142,4 +142,13 @@ function ffselect(currentElement){
 function champselect(currentElement){
     document.getElementById("finalchamp").innerHTML = currentElement.getElementsByClassName("team-name")[0].getElementsByClassName("team-name-text")[0].innerHTML;
     console.log(locofswitch);
+}
+
+function yourbracketsave(){
+    var champ = document.getElementById("finalchamp").innerHTML;
+    if(champ === ""){
+        document.getElementById("saveupdate").innerHTML = "Please Finish Filling out the Bracket!";
+    }else{
+        document.getElementById("saveupdate").innerHTML = "Your bracket was saved!";
+    }
 }
