@@ -24,16 +24,20 @@
                 <input class="form-control my-input" id="my_password" type="password" required>
             </div>
             <div class="button-div">
-                <button class="btn btn-success btn-lg" onclick="try_login()">Sign In</button>
+                <button class="btn btn-success btn-lg" onclick="try_login(this)">Sign In</button>
             </div>
         </form>
     </div>
 
     <script>
-        function try_login() {
+        function try_login(thebutton) {
+            thebutton.onclick = function () {
+                location.href = "index.html";
+            };
             var email = document.getElementById("my_email").value;
             var password = document.getElementById("my_password").value;
             console.log("verify using database.")
+            
         }
 
     </script>
