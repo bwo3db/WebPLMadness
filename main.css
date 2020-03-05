@@ -40,3 +40,74 @@ h1 {
 #invalid-text {
     color: red;
 }
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+}
+
+.flexbox-title-container {
+    margin-left: 8%;
+    margin-right: 8%;
+    padding-left: 2%;
+}
+
+.flexbox-title {
+    width: 70%;
+}
+
+.flexbox-title2 {
+    width: 10%;
+    text-align: center;
+}
+
+.title-container {
+    background-color: rgba(206, 213, 214, 0.687);
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+
+#logo {
+    padding-left: 2%;
+    width: 60%;
+    font-size: large;
+}
+
+.title-content {
+    width: 10%;
+    font-size: large;
+    text-align: center;
+}
+
+#top-score {
+    text-align: center;
+    justify-content: center;
+    font-size: xx-large;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+.label-flex-container {
+    padding-left: 10%;
+}
+
+.individual-bracket {
+    background-color: rgba(206, 213, 214, 0.687);
+    margin-left: 8%;
+    margin-right: 8%;
+    padding-left: 2%;
+    border-radius: 25px;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin-bottom: 1%;
+    font-size: large;
+}
+
+.bracket-name {
+    width: 70%;
+    font-size: large;
+}
