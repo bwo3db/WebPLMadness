@@ -1,3 +1,45 @@
+
+
+var ro64sub = function(changedElement, addcode, modder){
+    let position = changedElement - addcode - 17;
+    if(addcode === 0){
+        if(modder === 0){
+            bracketarray[position] = 0;
+            console.log(bracketarray);
+        }else{
+            bracketarray[position] = 1;
+            console.log(bracketarray);
+        }
+    }else if (addcode === 30){
+        position = position + 8;
+        if(modder === 0){
+            bracketarray[position] = 0;
+            console.log(bracketarray);
+        }else{
+            bracketarray[position] = 1;
+            console.log(bracketarray);
+        }
+    }else if (addcode ===66){
+        position = position + 16;
+        if(modder === 0){
+            bracketarray[position] = 0;
+            console.log(bracketarray);
+        }else{
+            bracketarray[position] = 1;
+            console.log(bracketarray);
+        }
+    }else if(addcode === 96){
+        position = position + 24;
+        if(modder === 0){
+            bracketarray[position] = 0;
+            console.log(bracketarray);
+        }else{
+            bracketarray[position] = 1;
+            console.log(bracketarray);
+        }
+    }
+}
+
 var ro64select = function(currentElement, addcode){
     let currentelementid = Number(currentElement.id);
     let changedelement = 0; 
@@ -37,6 +79,7 @@ var ro64select = function(currentElement, addcode){
     }else if(currentelementid === 16 + addcode){
         changedelement = 24 + addcode;
     }
+    ro64sub(changedelement, addcode, currentElement.id % 2);
 
     var locofswitch = document.getElementById(changedelement.toString());
     locofswitch.getElementsByClassName("ranking")[0].getElementsByClassName("ranking-text")[0].innerHTML = currentElement.getElementsByClassName("ranking")[0].getElementsByClassName("ranking-text")[0].innerHTML;
@@ -66,6 +109,8 @@ ro32select = (currentElement, addcode) =>{
         changedelement = 28 + addcode;
     }
 
+    ro64sub(changedelement, addcode, currentElement.id % 2);
+
     var locofswitch = document.getElementById(changedelement.toString());
     locofswitch.getElementsByClassName("ranking")[0].getElementsByClassName("ranking-text")[0].innerHTML = currentElement.getElementsByClassName("ranking")[0].getElementsByClassName("ranking-text")[0].innerHTML;
     locofswitch.getElementsByClassName("team-name")[0].getElementsByClassName("team-name-text")[0].innerHTML = currentElement.getElementsByClassName("team-name")[0].getElementsByClassName("team-name-text")[0].innerHTML;
@@ -84,6 +129,8 @@ function ro16select(currentElement, addcode){
     }else if(currentelementid === 28 + addcode){
         changedelement = 30 + addcode;
     }
+    
+    ro64sub(changedelement, addcode, currentElement.id % 2);
 
     var locofswitch = document.getElementById(changedelement.toString());
     locofswitch.getElementsByClassName("ranking")[0].getElementsByClassName("ranking-text")[0].innerHTML = currentElement.getElementsByClassName("ranking")[0].getElementsByClassName("ranking-text")[0].innerHTML;
