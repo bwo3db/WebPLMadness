@@ -1,5 +1,4 @@
-
-
+/*Authors: Benjamin Ormond and Nathan Park*/
 var ro64sub = function(changedElement, addcode, modder){
     let position = changedElement - addcode - 17;
     if(addcode === 0){

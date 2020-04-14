@@ -1,3 +1,4 @@
+<!--Authors: Benjamin Ormond, and Nathan Park-->
 <?php
 session_start();
 ?>

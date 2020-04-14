@@ -1,3 +1,4 @@
+<!--Authors: Benjamin Ormond, and Nathan Park-->
 <?php
     $dbname = 'webplmadness';
     $hostname = '127.0.0.1';

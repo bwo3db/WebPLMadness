@@ -1,4 +1,4 @@
-
+/*Authors: Benjamin Ormond and Nathan Park*/
 var k = 0;
 var allboxes = document.getElementsByClassName("team-box");
 for(var i = 0;i<8;i++){
