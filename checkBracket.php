@@ -11,36 +11,39 @@
         <link rel="stylesheet" type="text/css" href="styles.css" media="screen"/>
 
     </head>
-    <script>
-        var bracketarray = new Array(62);
-        bracketarray = bracketarray.fill("Z", 0);
-        var champion = ' ';
-    </script>
     <body>
-        <?php 
+        <?php
         session_start();
         require('connect.php');
+        $_SESSION["username"] = 'john';
+        $theData = '';
+        if(isset($_SESSION["username"])){
 
-        $champion = "champion";
-        if(isset($_COOKIE[$champion])) {
             $con = new mysqli($hostname, $username, $password, $dbname);
             
             if(mysqli_connect_errno()) {
                 echo "Can't Connect to MySQL Server. Error Code: " . mysqli_connect_error();
                 return null;
             }
-            
-            $_SESSION["username"] = 'john';
-            $sqlCHECKUSER ="SELECT * FROM maintable WHERE username= " . $_SESSION["username"];
-            $result = mysqli_query($con, $sqlCHECKUSER);
 
-            $sqlUPDATEUSER = "UPDATE maintable SET bracket = '".$_COOKIE['bracketarray']."', winner= '".$_COOKIE[$champion]."' WHERE username = '". $_SESSION["username"] ."'";
-            //echo $sqlUPDATEUSER;
-            mysqli_query($con, $sqlUPDATEUSER);
-            mysqli_close($con);
-            
+            $sqlGETBRACKET = "SELECT bracket FROM `maintable` WHERE username = '". $_SESSION["username"] . "' LIMIT 1";
+            $result = mysqli_query($con, $sqlGETBRACKET);
+
+            if ($result->num_rows > 0) {
+                // output data of each row
+                while($row = $result->fetch_assoc()) {
+                    //echo $row["bracket"];
+                    $theData = $row["bracket"];
+                }
+            }
+
         }
+        //echo $theData;
         ?>
+        
+        <script>
+            var returnedbracket = <?php echo json_encode($theData); ?>;
+        </script>
         <!--Navbar-->
         <div class="flex-container title-container">
             <div id="logo">Logo Here</div>
