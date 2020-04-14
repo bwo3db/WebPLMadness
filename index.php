@@ -45,15 +45,9 @@
         <div class="flex-container title-container">
             <div id="logo">Logo Here</div>
             <div class="title-content"><a href="leaderboard.html">Scoreboard</a></div>
-<<<<<<< HEAD
-            <div class="title-content"><a href="index.html">Create</a></div>
-            <div class="title-content"><a href="index.html">Your Bracket</a></div>
-            <div class="title-content"><a href="login.php">Logout</a></div>
-=======
             <div class="title-content"><a href="index.php">Create</a></div>
             <div class="title-content"><a href="checkBracket.php">Your Bracket</a></div>
-            <div class="title-content"><a href="login.html">Logout</a></div>
->>>>>>> bbf2bb591d5398c2a81670a0baa88284d88f72ee
+            <div class="title-content"><a href="login.php">Logout</a></div>
         </div>
         <!--This is for the Title Business-->
         <div class="headerbar">

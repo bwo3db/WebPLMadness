@@ -28,23 +28,11 @@ session_start();
                 <input class="form-control my-input" name="pwd" id="my_password" type="password" required>
             </div>
             <div class="button-div">
-                <button class="btn btn-success btn-lg" type="submit" onclick="try_login(this)">Sign In</button>
+                <button class="btn btn-success btn-lg" style="margin-right: 10px" type="submit">Sign In</button>
+                <button class="btn btn-success btn-lg" style="margin-left: 10px" onclick="location.href = 'signup.php';">Sign Up</button>
             </div>
         </form>
     </div>
-
-    <script>
-        function try_login(thebutton) {
-            thebutton.onclick = function () {
-                location.href = "index.html";
-            };
-            var email = document.getElementById("my_email").value;
-            var password = document.getElementById("my_password").value;
-            console.log("verify using database.")
-            
-        }
-
-    </script>
 
 <?php
 
@@ -69,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = login($_POST['email'], $_POST['pwd']);
     $input_pwd = htmlspecialchars($_POST['pwd']);
     if(empty($result)) {
-        echo '<p style="color: red;">Incorrect email or password</p>';
+        echo '<br/><p style="color: red; text-align: center; font-size: large;">Incorrect email or password</p>';
     }
     else if(password_verify($input_pwd, $result[2])){
         echo "password matches <br>";
@@ -81,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header("Location: index.php");
       }
     else{
-        echo "password does not match <br/>";
+        echo '<br/><p style="color: red; text-align: center; font-size: large;">Password does not match</p>';
     }
 }
 
