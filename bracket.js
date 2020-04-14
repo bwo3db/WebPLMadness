@@ -211,7 +211,7 @@ function yourbracketsave(){
     }else{
         document.getElementById("saveupdate").innerHTML = "Your bracket was saved!";
         document.cookie = "bracketarray="+convertedBracket;
-        document.cookie = "champion="+champion;
+        document.cookie = "champion="+champion;//cookie is set here
         console.log(document.cookie);
     }
 }

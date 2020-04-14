@@ -30,8 +30,7 @@
                 return null;
             }
             
-            $_SESSION["username"] = 'john';//hardcode
-            $sqlCHECKUSER ="SELECT * FROM maintable WHERE username= " . $_SESSION["username"];
+            $sqlCHECKUSER ="SELECT * FROM maintable WHERE username= " . $_SESSION["username"];//checking for the user and then updating in the next command
             $result = mysqli_query($con, $sqlCHECKUSER);
 
             $sqlUPDATEUSER = "UPDATE maintable SET bracket = '".$_COOKIE['bracketarray']."', winner= '".$_COOKIE[$champion]."' WHERE username = '". $_SESSION["username"] ."'";

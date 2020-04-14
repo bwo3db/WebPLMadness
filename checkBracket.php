@@ -15,7 +15,6 @@
         <?php
         session_start();
         require('connect.php');
-        $_SESSION["username"] = 'john';//hardcode
         $theData = '';
         $theChampData = '';//using these to store the returned sql data and then populate with js
         if(isset($_SESSION["username"])){
