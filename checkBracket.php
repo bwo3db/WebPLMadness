@@ -17,6 +17,7 @@
         require('connect.php');
         $_SESSION["username"] = 'john';
         $theData = '';
+        $theChampData = '';
         if(isset($_SESSION["username"])){
 
             $con = new mysqli($hostname, $username, $password, $dbname);
@@ -37,26 +38,35 @@
                 }
             }
 
+            $sqlGETCHAMP = "SELECT winner FROM `maintable` WHERE username = '". $_SESSION["username"] . "' LIMIT 1";
+            $result2 = mysqli_query($con, $sqlGETCHAMP);
+
+            if ($result2->num_rows > 0) {
+                // output data of each row
+                while($row = $result2->fetch_assoc()) {
+                    //echo $row["bracket"];
+                    $theChampData = $row["winner"];
+                }
+            }
+
         }
         //echo $theData;
         ?>
         
-        <script>
-            var returnedbracket = <?php echo json_encode($theData); ?>;
-        </script>
+        
         <!--Navbar-->
         <div class="flex-container title-container">
             <div id="logo">Logo Here</div>
             <div class="title-content"><a href="leaderboard.html">Scoreboard</a></div>
-            <div class="title-content"><a href="index.html">Create</a></div>
-            <div class="title-content"><a href="index.html">Your Bracket</a></div>
+            <div class="title-content"><a href="index.php">Create</a></div>
+            <div class="title-content"><a href="checkBracket.php">Your Bracket</a></div>
             <div class="title-content"><a href="login.html">Logout</a></div>
         </div>
         <!--This is for the Title Business-->
         <div class="headerbar">
-            <h1 class="header-text">Create A Bracket</h1>
-            <h2 class="header-text">Your Projected Point Score: </h2> <!--this will be addressed in the backend or in future javascript-->
-            <h2 class="header-text">Predicted Average Wins: </h2>
+            <h1 class="header-text"><?php echo $_SESSION["username"]?>'s Bracket</h1>
+           <!-- <h2 class="header-text">Your Projected Point Score: </h2>--> <!--this will be addressed in the backend or in future javascript-->
+            <!--<h2 class="header-text">Predicted Average Wins: </h2>-->
         </div>
         <!--This is for the Title Business-->
         <div class="titlebar">
@@ -628,14 +638,11 @@
             </div>
         </div>
         <!-- Champion Box -->
-        <form action="index.php" method="post" class="champion">
+        <div class="champion">
             <h2>Champion</h2>
             <h2 id="finalchamp"></h2>
             <hr/>
-            <p id="saveupdate"></p>
-            <button class="btn btn-success btn-lg" onclick="yourbracketsave()" 
-            type="submit">Save</button>
-        </form>
+        </div>
         <!-- Semi-finals and Championship Game Box -->
         <div class="champions-bracket">
             <div class="score-box">
@@ -1262,7 +1269,16 @@
                 </div>
             </div>
         </div>
+        <script>var bracketarray = new Array(62);
+        bracketarray = bracketarray.fill("Z", 0);
+        var champion = ' ';</script>
+        
         <script src="bracket.js"></script>
+        <script>
+            var returnedbracket = <?php echo json_encode($theData); ?>;
+            var returnedchamp  =<?php echo json_encode($theChampData); ?>;
+        </script>
+        <script src="checkBracket.js"></script>
         <!--Emmet generate 64 teams-->
         <!--(div.grid-container>div.score-box>div.team-box*2>(div.ranking>p.ranking-text)+div.team-name>p.team-name-text)*64-->
     </body>
