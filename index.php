@@ -45,15 +45,21 @@
         <div class="flex-container title-container">
             <div id="logo">Logo Here</div>
             <div class="title-content"><a href="leaderboard.html">Scoreboard</a></div>
+<<<<<<< HEAD
             <div class="title-content"><a href="index.html">Create</a></div>
             <div class="title-content"><a href="index.html">Your Bracket</a></div>
             <div class="title-content"><a href="login.php">Logout</a></div>
+=======
+            <div class="title-content"><a href="index.php">Create</a></div>
+            <div class="title-content"><a href="checkBracket.php">Your Bracket</a></div>
+            <div class="title-content"><a href="login.html">Logout</a></div>
+>>>>>>> bbf2bb591d5398c2a81670a0baa88284d88f72ee
         </div>
         <!--This is for the Title Business-->
         <div class="headerbar">
             <h1 class="header-text">Create A Bracket</h1>
-            <h2 class="header-text">Your Projected Point Score: </h2> <!--this will be addressed in the backend or in future javascript-->
-            <h2 class="header-text">Predicted Average Wins: </h2>
+            <!--<h2 class="header-text">Your Projected Point Score: </h2>--> <!--this will be addressed in the backend or in future javascript-->
+            <!--<h2 class="header-text">Predicted Average Wins: </h2>-->
         </div>
         <!--This is for the Title Business-->
         <div class="titlebar">
