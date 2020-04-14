@@ -19,10 +19,10 @@
     <body>
         <?php 
         session_start();
-        require('connect.php');
+        require('connect.php');//basic connection file
 
         $champion = "champion";
-        if(isset($_COOKIE[$champion])) {
+        if(isset($_COOKIE[$champion])) {//cookie here is being stored with JS and then picked up when the PHP form submits
             $con = new mysqli($hostname, $username, $password, $dbname);
             
             if(mysqli_connect_errno()) {
@@ -30,7 +30,7 @@
                 return null;
             }
             
-            $_SESSION["username"] = 'john';
+            $_SESSION["username"] = 'john';//hardcode
             $sqlCHECKUSER ="SELECT * FROM maintable WHERE username= " . $_SESSION["username"];
             $result = mysqli_query($con, $sqlCHECKUSER);
 
