@@ -81,6 +81,26 @@
         }
 
     </script>
+
+    <!-- <?php
+    require('connect.php');
+
+    function signup() {
+        global $db;
+    
+        // $query = "SELECT * FROM maintable WHERE email = :email";
+        // $statement = $db -> prepare($query);
+        // $statement -> bindValue(':email', $email);
+        // $statement -> execute();
+    
+        // $result = $statement -> fetch();
+        // $statement -> closeCursor();
+    
+    
+        // return $result;
+        echo "whatup world";
+    }
+    ?> -->
 </body>
 
 </html>
