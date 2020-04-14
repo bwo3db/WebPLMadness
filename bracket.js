@@ -11,7 +11,7 @@ var ro64sub = function(changedElement, addcode, modder){
             console.log(bracketarray);
         }
     }else if (addcode === 30){
-        position = position + 8;
+        position = position + 14;
         if(modder === 0){
             bracketarray[position] = 0;
             console.log(bracketarray);
@@ -20,7 +20,7 @@ var ro64sub = function(changedElement, addcode, modder){
             console.log(bracketarray);
         }
     }else if (addcode ===66){
-        position = position + 16;
+        position = position + 28;
         if(modder === 0){
             bracketarray[position] = 0;
             console.log(bracketarray);
@@ -29,7 +29,7 @@ var ro64sub = function(changedElement, addcode, modder){
             console.log(bracketarray);
         }
     }else if(addcode === 96){
-        position = position + 24;
+        position = position + 42;
         if(modder === 0){
             bracketarray[position] = 0;
             console.log(bracketarray);
@@ -143,22 +143,30 @@ function eeselect(currentElement){
     let changedelement = 0; 
     if(currentelementid  === 29){
         changedelement = 61;
+        bracketarray[56] = 1;
     }else if(currentelementid === 30){
         changedelement = 61;
+        bracketarray[56] = 0;
     }else if(currentelementid === 95){
         changedelement = 62;
+        bracketarray[57] = 1;
     }else if(currentelementid === 96){
         changedelement = 62;
+        bracketarray[57] = 0;
     }
     else if(currentelementid === 59){
         changedelement = 65;
+        bracketarray[58] = 1;
     }else if(currentelementid === 60){
         changedelement = 65;
+        bracketarray[58] = 0;
     }
     else if(currentelementid === 125){
         changedelement = 66;
+        bracketarray[59] = 1;
     }else if(currentelementid === 126){
         changedelement = 66;
+        bracketarray[59] = 0;
     }
 
     var locofswitch = document.getElementById(changedelement.toString());
@@ -172,12 +180,16 @@ function ffselect(currentElement){
     let changedelement = 0; 
     if(currentelementid  === 61){
         changedelement = 63;
+        bracketarray[60] = 1;
     }else if(currentelementid === 62){
         changedelement = 63;
+        bracketarray[60] = 0;
     }else if(currentelementid === 65){
         changedelement = 64;
+        bracketarray[61] = 1;
     }else if(currentelementid === 66){
         changedelement = 64;
+        bracketarray[61] = 0;
     }
 
     var locofswitch = document.getElementById(changedelement.toString());
@@ -187,15 +199,19 @@ function ffselect(currentElement){
 }
 
 function champselect(currentElement){
+    champion = currentElement.getElementsByClassName("team-name")[0].getElementsByClassName("team-name-text")[0].innerHTML;
     document.getElementById("finalchamp").innerHTML = currentElement.getElementsByClassName("team-name")[0].getElementsByClassName("team-name-text")[0].innerHTML;
-    console.log(locofswitch);
 }
 
 function yourbracketsave(){
     var champ = document.getElementById("finalchamp").innerHTML;
+    var convertedBracket = bracketarray.toString().replace(/,/g, '');
     if(champ === ""){
         document.getElementById("saveupdate").innerHTML = "Please Finish Filling out the Bracket!";
     }else{
         document.getElementById("saveupdate").innerHTML = "Your bracket was saved!";
+        document.cookie = "bracketarray="+convertedBracket;
+        document.cookie = "champion="+champion;
+        console.log(document.cookie);
     }
 }
