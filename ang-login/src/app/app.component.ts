@@ -11,13 +11,14 @@ export class AppComponent {
   title = 'ang-login';
   constructor(private http: HttpClient) {
   }
-  sendPost(data: any): Observable<any> {
-    console.log(data);
-    return this.http.post("http://localhost/webplmadness/backend_login.php", data, { responseType: 'text' });
+  sendPost(email: any, password: any): Observable<any> {
+    console.log(email);
+    console.log(password);
+    return this.http.post("http://localhost/webplmadness/backend_login.php", email, { responseType: 'text' });
   }
-  subPost(data: any) {
+  subPost(data: any, data2: any) {
     console.log(data)
-    this.sendPost(data).subscribe(
+    this.sendPost(data, data2).subscribe(
       res => {
         console.log(res);
       }
