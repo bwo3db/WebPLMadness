@@ -21,8 +21,10 @@
       </div>
     </form>
     <div *ngIf="err_msg.length != 0">
-      <div *ngFor="let message of err_msg">
+      <div class="error_msg" *ngFor="let message of err_msg">
         {{ message }}
+        <br />
+        <br />
       </div>
     </div>
   </div>

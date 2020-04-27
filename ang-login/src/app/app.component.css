@@ -16,6 +16,12 @@ body {background-color: rgba(206, 213, 214, 0.687);}
     margin-bottom: 1%;
 }
 
+.error_msg {
+    color: red;
+    text-align: center;
+    font-size: 15px;
+}
+
 .required
 {
     color: red;
