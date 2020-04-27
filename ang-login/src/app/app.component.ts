@@ -9,7 +9,7 @@ import { User } from './user';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ang-login';
+  title = 'ang-login';//modeling user data
 
   userModel = new User('', '');
 
@@ -21,7 +21,9 @@ export class AppComponent {
   constructor(private http: HttpClient) {
   }
 
-  subPost(form: any) {
+  
+
+  subPost(form: any) { //post submission part of the component
     console.log(form)
     this.data_sumbitted = form;
 
@@ -30,7 +32,7 @@ export class AppComponent {
 
     console.log(params);
 
-    this.http.post('http://localhost/webplmadness/backend_login.php', params, { responseType: 'text' })
+    this.http.post('http://localhost/webplmadness/backend_login.php', params, { responseType: 'text' })//actual post
       .subscribe(
         res => {
           let someString = res;
