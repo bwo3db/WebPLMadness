@@ -1,6 +1,4 @@
 <body>
-  <!-- <input #box (keyup.enter)="subPost(box.value)">
-  <p>{{box.value}}</p> -->
   <div class="form-container">
     <form #userForm="ngForm" (ngSubmit)="subPost(userForm.value)" method="post">
       <h1 style="text-align: center;">Sign In</h1>
@@ -22,6 +20,11 @@
           Up</button>
       </div>
     </form>
+    <div *ngIf="err_msg.length != 0">
+      <div *ngFor="let message of err_msg">
+        {{ message }}
+      </div>
+    </div>
   </div>
 
   <body>

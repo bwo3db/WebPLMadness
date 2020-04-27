@@ -16,15 +16,10 @@ export class AppComponent {
   data_sumbitted = '';
 
   response_data = '';
+  err_msg = [];
 
   constructor(private http: HttpClient) {
   }
-
-  // sendPost(email: any, password: any): Observable<any> {
-  //   console.log(email);
-  //   console.log(password);
-  //   return this.http.post("http://localhost/webplmadness/backend_login.php", email, { responseType: 'text' });
-  // }
 
   subPost(form: any) {
     console.log(form)
@@ -40,22 +35,20 @@ export class AppComponent {
         res => {
           let someString = res;
           let len_header = "<!--Authors: Benjamin Ormond, and Nathan Park-->".length;
-          someString = someString.slice(len_header, res.length);
-          console.log(someString);
+          let index_curl = res.indexOf('}') + 1;
+          someString = someString.slice(len_header, index_curl);
           var jsonObject = JSON.parse(someString);
-          console.log(jsonObject);
-          this.response_data = "fuck yeah";
-          console.log(this.response_data);
+          this.response_data = jsonObject.result;
+          if (this.response_data == "good") {
+            window.location.assign('http://localhost/webplmadness/index.php');
+          }
+          else if (this.response_data == "ep") {
+            this.err_msg = ["Email not recognized", "Password incorrect"];
+          }
+          else {
+            this.err_msg = ["Password incorrect"];
+          }
         }
       );
-    // .subscribe((data) => {
-    //   console.log(data);
-    //   // Receive a response successfully, do something here
-    //   // console.log('Response from backend ', data);
-    //   // this.response_data = data;     // assign response to responsedata property to bind to screen later
-    // }, (error) => {
-    //   // An error occurs, handle an error in some way
-    //   console.log('Error ', error);
-    // })
   }
 }
