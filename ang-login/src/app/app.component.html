@@ -1,26 +1,19 @@
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sign In Page</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="app.component.css">
-</head>
-
 <body>
   <!-- <input #box (keyup.enter)="subPost(box.value)">
   <p>{{box.value}}</p> -->
   <div class="form-container">
-    <form method="post" (keyup.enter)="subPost(email.value, password.value )">
+    <form #userForm="ngForm" (ngSubmit)="subPost(userForm.value)" method="post">
       <h1 style="text-align: center;">Sign In</h1>
       <div class="form-input-container">
         <label>Email <span class="required">*</span></label>
         <input #email class="form-control my-input" name="email" id="my_email" type="text"
-          placeholder="john-doe@gmail.com" required>
+          placeholder="john-doe@gmail.com" required #name="ngModel" required
+          pattern="/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/" [(ngModel)]="userModel.email">
       </div>
       <div class="form-input-container">
         <label style="text-align: left;">Password <span class="required">*</span></label>
-        <input #password class="form-control my-input" name="pwd" id="my_password" type="password" required>
+        <input #password class="form-control my-input" name="pwd" #name="ngModel" id="my_password" type="password"
+          required [(ngModel)]="userModel.password">
       </div>
       <div class="button-div">
         <button class="btn btn-success btn-lg" style="margin-right: 10px" type="submit">Sign In</button>
