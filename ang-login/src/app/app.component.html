@@ -8,21 +8,24 @@
 </head>
 
 <body>
+  <!-- <input #box (keyup.enter)="subPost(box.value)">
+  <p>{{box.value}}</p> -->
   <div class="form-container">
-    <form method="post">
+    <form method="post" (keyup.enter)="subPost(email.value, password.value )">
       <h1 style="text-align: center;">Sign In</h1>
       <div class="form-input-container">
         <label>Email <span class="required">*</span></label>
-        <input class="form-control my-input" name="email" id="my_email" type="text" placeholder="john-doe@gmail.com"
-          required>
+        <input #email class="form-control my-input" name="email" id="my_email" type="text"
+          placeholder="john-doe@gmail.com" required>
       </div>
       <div class="form-input-container">
         <label style="text-align: left;">Password <span class="required">*</span></label>
-        <input class="form-control my-input" name="pwd" id="my_password" type="password" required>
+        <input #password class="form-control my-input" name="pwd" id="my_password" type="password" required>
       </div>
       <div class="button-div">
         <button class="btn btn-success btn-lg" style="margin-right: 10px" type="submit">Sign In</button>
-        <button class="btn btn-success btn-lg" style="margin-left: 10px" onclick="location.href = 'signup.php';">Sign
+        <button class="btn btn-success btn-lg" style="margin-left: 10px"
+          onclick="location.href = 'http:/localhost/webplmadness/signup.php';">Sign
           Up</button>
       </div>
     </form>

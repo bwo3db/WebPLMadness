@@ -6,6 +6,9 @@ require('connect.php');
 session_start();
 
 
+$postdata = file_get_contents("php://input");
+// echo "this is the post data recieved by php: " . "'" . $postdata . "'";
+
 function login($email, $password) {
     global $db;
 
@@ -22,23 +25,24 @@ function login($email, $password) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $result = login($_POST['email'], $_POST['pwd']);
-    $input_pwd = htmlspecialchars($_POST['pwd']);
-    if(empty($result)) {
-        echo '<br/><p style="color: red; text-align: center; font-size: large;">Incorrect email or password</p>';
-    }
-    else if(password_verify($input_pwd, $result[2])){
-        echo "password matches <br>";
-        // Change this to where ever you want to person to go to
-        $_SESSION["username"] = $result["username"];
-        $_SESSION["email"] = $result["email"];
-        $_SESSION["bracket"] = $result["bracket"];
-        $_SESSION["winner"] = $result["winner"];
-        header("Location: index.php");
-      }
-    else{
-        echo '<br/><p style="color: red; text-align: center; font-size: large;">Password does not match</p>';
-    }
+    echo $postdata;
+    // $result = login($_POST['email'], $_POST['pwd']);
+    // $input_pwd = htmlspecialchars($_POST['pwd']);
+    // if(empty($result)) {
+    //     echo '<br/><p style="color: red; text-align: center; font-size: large;">Incorrect email or password</p>';
+    // }
+    // else if(password_verify($input_pwd, $result[2])){
+    //     echo "password matches <br>";
+    //     // Change this to where ever you want to person to go to
+    //     $_SESSION["username"] = $result["username"];
+    //     $_SESSION["email"] = $result["email"];
+    //     $_SESSION["bracket"] = $result["bracket"];
+    //     $_SESSION["winner"] = $result["winner"];
+    //     header("Location: index.php");
+    //   }
+    // else{
+    //     echo '<br/><p style="color: red; text-align: center; font-size: large;">Password does not match</p>';
+    // }
 }
 
 ?>

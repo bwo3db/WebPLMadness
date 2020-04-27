@@ -12,10 +12,11 @@ export class AppComponent {
   constructor(private http: HttpClient) {
   }
   sendPost(data: any): Observable<any> {
-    return this.http.post("/http://localhost/webplmadness/backend_login.php", data, { responseType: 'text' });
     console.log(data);
+    return this.http.post("http://localhost/webplmadness/backend_login.php", data, { responseType: 'text' });
   }
   subPost(data: any) {
+    console.log(data)
     this.sendPost(data).subscribe(
       res => {
         console.log(res);
