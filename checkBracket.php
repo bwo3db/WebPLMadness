@@ -57,7 +57,6 @@
         <!--Navbar-->
         <div class="flex-container title-container">
             <div id="logo">Logo Here</div>
-            <div class="title-content"><a href="leaderboard.html">Scoreboard</a></div>
             <div class="title-content"><a href="index.php">Create</a></div>
             <div class="title-content"><a href="checkBracket.php">Your Bracket</a></div>
             <div class="title-content" onclick="window.location.assign('http:/' + '/' + 'localhost:4200/');">Logout</div>
