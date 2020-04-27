@@ -60,7 +60,7 @@
             <div class="title-content"><a href="leaderboard.html">Scoreboard</a></div>
             <div class="title-content"><a href="index.php">Create</a></div>
             <div class="title-content"><a href="checkBracket.php">Your Bracket</a></div>
-            <div class="title-content"><a href="login.php">Logout</a></div>
+            <div class="title-content" onclick="window.location.assign('http:/' + '/' + 'localhost:4200/');">Logout</div>
         </div>
         <!--This is for the Title Business-->
         <div class="headerbar">
