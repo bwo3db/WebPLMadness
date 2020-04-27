@@ -15,7 +15,7 @@ export class AppComponent {
 
   data_sumbitted = '';
 
-  response_data = new User('', '');
+  response_data = '';
 
   constructor(private http: HttpClient) {
   }
@@ -35,10 +35,17 @@ export class AppComponent {
 
     console.log(params);
 
-    this.http.post('http://localhost/webplmadness/backend_login.php', params)
+    this.http.post('http://localhost/webplmadness/backend_login.php', params, { responseType: 'text' })
       .subscribe(
         res => {
-          console.log(res);
+          let someString = res;
+          let len_header = "<!--Authors: Benjamin Ormond, and Nathan Park-->".length;
+          someString = someString.slice(len_header, res.length);
+          console.log(someString);
+          var jsonObject = JSON.parse(someString);
+          console.log(jsonObject);
+          this.response_data = "fuck yeah";
+          console.log(this.response_data);
         }
       );
     // .subscribe((data) => {

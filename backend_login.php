@@ -18,7 +18,6 @@ $postdata = file_get_contents("php://input");
 $request = json_decode($postdata);
 
 $data = [];
-$data[0]['length'] = $content_length;
 foreach ($request as $k => $v)
 {
   $data[0]['post_'.$k] = $v;
